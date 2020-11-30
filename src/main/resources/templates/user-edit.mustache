@@ -9,38 +9,40 @@
         <h1>{{#add}}Create new User:{{/add}}{{^add}}Edit User:{{/add}}</h1>
         <a href="/users">Back to User List</a>
         <br/><br/>
-        <form action="{{#add}}/users/add{{/add}}{{^add}}/users/{{user.id}}/edit{{/add}}" name="user" method="POST">
+        {{#user}}
+        <form action="{{#add}}/users/add{{/add}}{{^add}}/users/{{id}}/edit{{/add}}" name="user" method="POST">
             <table border="0">
-                {{#user.id}}
+                {{#id}}
                 <tr>
                     <td>ID</td>
                     <td>:</td>
-                    <td>{{user.id}}</td>             
+                    <td>{{id}}</td>             
                 </tr>
-                {{/user.id}}
+                {{/id}}
                 <tr>
                     <td>Name</td>
                     <td>:</td>
-                    <td><input type="text" name="name" value="{{#user.name}}{{user.name}}{{/user.name}}" /></td>              
+                    <td><input type="text" name="name" value="{{#name}}{{name}}{{/name}}" /></td>              
                 </tr>
                 <tr>
                     <td>Email</td>
                     <td>:</td>
-                    <td><input type="text" name="email" value="{{#user.email}}{{user.email}}{{/user.email}}" /></td>              
+                    <td><input type="text" name="email" value="{{#email}}{{email}}{{/email}}" /></td>              
                 </tr>
                 <tr>
                     <td>Phone</td>
                     <td>:</td>
-                    <td><input type="text" name="phone" value="{{#user.phone}}{{user.phone}}{{/user.phone}}" /></td>              
+                    <td><input type="text" name="phone" value="{{#phone}}{{phone}}{{/phone}}" /></td>              
                 </tr>
                 <tr>
                     <td>Address</td>
                     <td>:</td>
-                    <td><input type="text" name="address" value="{{#user.address}}{{user.address}}{{/user.address}}" /></td>              
+                    <td><input type="text" name="address" value="{{#address}}{{address}}{{/address}}" /></td>              
                 </tr>
             </table>
             <input type="submit" value="{{#add}}Create{{/add}}{{^add}}Update{{/add}}" />
         </form>
+        {{/user}}
 
         <br/>
         <!-- Check if errorMessage is not null and not empty -->       
